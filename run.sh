@@ -36,7 +36,7 @@ install_requirements() {
 INSTALL_DIR="kaioagent-cli"
 
 # Fixed URLs for kaioagent.py downloads
-LATEST_URL="https://github.com/siliconuy/kaioagent-cli/releases/latest/download/kaioagent.py"
+LATEST_URL="https://github.com/siliconuy/kagcli-releases/releases/latest/download/kaioagent.py"
 
 # Function to get version from kaioagent.py
 get_version() {
