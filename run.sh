@@ -53,7 +53,7 @@ get_version() {
 download_and_install() {
     mkdir -p "${INSTALL_DIR}"
     echo "Downloading latest kaioagent.py..."
-    if curl -s -o "${INSTALL_DIR}/kaioagent.py" "${LATEST_URL}"; then
+    if curl -s -L -o "${INSTALL_DIR}/kaioagent.py" "${LATEST_URL}"; then
         chmod +x "${INSTALL_DIR}/kaioagent.py"
         # Save version information
         version=$(get_version "${INSTALL_DIR}/kaioagent.py")
@@ -88,7 +88,7 @@ main() {
                 echo "Checking for updates..."
                 # Download to a temporary file to check version
                 mkdir -p "${INSTALL_DIR}/temp"
-                if curl -s -o "${INSTALL_DIR}/temp/kaioagent.py" "${LATEST_URL}"; then
+                if curl -s -L -o "${INSTALL_DIR}/temp/kaioagent.py" "${LATEST_URL}"; then
                     NEW_VERSION=$(get_version "${INSTALL_DIR}/temp/kaioagent.py")
                     rm -rf "${INSTALL_DIR}/temp"
                     
