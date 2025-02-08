@@ -36,7 +36,7 @@ install_requirements() {
 INSTALL_DIR="kaioagent-cli"
 
 # Fixed URLs for kaioagent.py downloads
-LATEST_URL="https://github.com/siliconuy/kagcli-releases/releases/latest/download/kaioagent.py"
+LATEST_URL="https://github.com/siliconuy/kaioagent-cli/releases/latest/download/kaioagent.py"
 
 # Function to get version from kaioagent.py
 get_version() {
@@ -53,7 +53,7 @@ get_version() {
 download_and_install() {
     mkdir -p "${INSTALL_DIR}"
     echo "Downloading latest kaioagent.py..."
-    if curl -s -L -o "${INSTALL_DIR}/kaioagent.py" "${LATEST_URL}"; then
+    if curl -s -o "${INSTALL_DIR}/kaioagent.py" "${LATEST_URL}"; then
         chmod +x "${INSTALL_DIR}/kaioagent.py"
         # Save version information
         version=$(get_version "${INSTALL_DIR}/kaioagent.py")
@@ -88,7 +88,7 @@ main() {
                 echo "Checking for updates..."
                 # Download to a temporary file to check version
                 mkdir -p "${INSTALL_DIR}/temp"
-                if curl -s -L -o "${INSTALL_DIR}/temp/kaioagent.py" "${LATEST_URL}"; then
+                if curl -s -o "${INSTALL_DIR}/temp/kaioagent.py" "${LATEST_URL}"; then
                     NEW_VERSION=$(get_version "${INSTALL_DIR}/temp/kaioagent.py")
                     rm -rf "${INSTALL_DIR}/temp"
                     
